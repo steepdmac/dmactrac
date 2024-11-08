@@ -1,0 +1,146 @@
+# Sample config.toml file to show the most frequently used configuration parameters.
+
+ZOTERO_LIBRARY_ID = "5740975"  # Set this to your Zotero library ID.
+ZOTERO_LIBRARY_TYPE = "group"  # Set to "user" for a personal library.
+
+BABEL_DEFAULT_LOCALE = "en_US"
+BABEL_DEFAULT_TIMEZONE = "UTC"
+
+# Most parameters have a default value. Deleting such parameter from this file
+# will not disable it but merely reset it to its default value.
+
+[kerko.features]
+
+download_attachment_new_window = false
+download_item = true
+download_results = true
+download_results_max_count = 0
+open_in_zotero_app = false
+open_in_zotero_web = false
+print_item = false
+print_results = false
+print_results_max_count = 0
+relations_links = false
+relations_initial_limit = 5
+relations_sort = "author_asc"
+results_abstracts = false
+results_abstracts_max_length = 0
+results_abstracts_max_length_leeway = 0
+results_abstracts_toggler = true
+results_attachment_links = true
+results_url_links = true
+
+[kerko.feeds]
+
+formats = ["atom"]
+max_days = 0
+
+[kerko.meta]
+
+title = "KerkoApp"
+highwirepress_tags = true
+google_analytics_id = ""
+
+[kerko.pagination]
+
+page_len = 20
+pager_links = 4
+
+[kerko.breadcrumb]
+
+enabled = true
+include_current = true
+text_max_length = 50
+text_max_length_leeway = 10
+
+[kerko.link_groups]
+
+    [[kerko.link_groups.navbar]]
+    text = "My Bibliography"
+    type = "endpoint"
+    endpoint = "kerko.search"
+
+    [[kerko.link_groups.breadcrumb_base]]
+    text = "My Organization"
+    type = "url"
+    url = "http://example.com"
+
+    [[kerko.link_groups.breadcrumb_base]]
+    text = "My Project"
+    type = "url"
+    url = "http://example.com/project"
+
+    [[kerko.link_groups.breadcrumb_base]]
+    text = "My Bibliography"
+    type = "endpoint"
+    endpoint = "kerko.search"
+
+[kerko.zotero]
+
+csl_style = "apa"
+locale = "en-US"
+item_include_re = ''
+item_exclude_re = ''
+child_include_re = ''
+child_exclude_re = '^_'
+attachment_mime_types = ["application/pdf"]
+tag_include_re = ''
+tag_exclude_re = '^_'
+
+[kerko.search]
+
+fulltext = true
+whoosh_language = "en"
+
+[kerko.facets]
+
+    [kerko.facets.tag]
+    enabled = true
+    weight = 100
+    initial_limit = 10
+    initial_limit_leeway = 2
+    sort_by = ["label"]
+
+    [kerko.facets.item_type]
+    enabled = true
+    weight = 200
+    initial_limit = 0
+    initial_limit_leeway = 2
+    sort_by = ["label"]
+
+    [kerko.facets.year]
+    enabled = true
+    weight = 300
+    initial_limit = 0
+    initial_limit_leeway = 2
+    sort_by = ["label"]
+
+    [kerko.facets.language]
+    enabled = true
+    weight = 320
+    initial_limit = 10
+    initial_limit_leeway = 2
+    sort_by = ["label"]
+    values_separator_re = ";"
+    normalize = true
+    locale = "en"
+    allow_invalid = true
+
+    [kerko.facets.link]
+    enabled = false
+    weight = 400
+    sort_by = ["label"]
+
+    # This shows how a collection-based facet might be configured.
+    [kerko.facets.my_custom_facet]
+    enabled = false  # No effect unless this is set to true.
+    type = "collection"
+    collection_key = "AAAAAAAA"
+    filter_key = "my_custom_facet"
+    title = "My custom facet"
+    weight = 50
+    initial_limit = 10
+    initial_limit_leeway = 2
+    sort_by = ["count", "label"]
+    sort_reverse = false
+    item_view = true

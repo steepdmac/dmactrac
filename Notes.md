@@ -11,6 +11,7 @@
 ### Hacking Whoosh
 - All synced Zotero data is stored in a Whoosh cache
 - Should be able to query that to find out in advance which publications have "Relations" 
+- Use Documents/Projects/whoosh-sandbox to develop code for examining the cache.
 
 
 ## Helpful links

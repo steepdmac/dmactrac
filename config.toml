@@ -37,7 +37,7 @@ max_days = 0
 
 [kerko.meta]
 
-title = "STEEP DMAC Tracker"
+title = "STEEP Data Publication Tracker"
 highwirepress_tags = true
 google_analytics_id = ""
 
@@ -67,9 +67,8 @@ text_max_length_leeway = 10
 
     [[kerko.link_groups.navbar]]
     type = "page"
-    page = "guides"
-    text = "Guides"
-    
+    page = "guides" 
+    text = "Guides"   
 
     [[kerko.link_groups.breadcrumb_base]]
     text = "Project STEEP"

@@ -12,6 +12,17 @@
 - All synced Zotero data is stored in a Whoosh cache
 - Should be able to query that to find out in advance which publications have "Relations" 
 - Use Documents/Projects/whoosh-sandbox to develop code for examining the cache.
+- ChatGPT provided working code samples for converting the whoosh cache to json. Still need to get a handle on how the data is handled by default in the kerko -- avoid reinventing the wheel if possible.
+
+### Citation Data feature
+- Registered on the Web of Science API site: https://developer.clarivate.com/applications/dmacwos00
+  - need to add more details to get an api key
+
+### Adding metrics
+- First step is getting a handle on how to add new routes in a kerko app. See some ChatGPT-generated some code samples in blueprint_examples.md.
+
+
+
 
 
 ## Helpful links

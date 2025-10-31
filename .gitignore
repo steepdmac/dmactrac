@@ -47,6 +47,8 @@ coverage.xml
 .spyproject/
 *.swo
 *.swp
+*.ipynb
+*.csv
 
 # OS-specific files.
 .DS_Store

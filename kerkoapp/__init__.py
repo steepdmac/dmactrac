@@ -8,6 +8,8 @@ import kerko
 from flask import Flask, render_template
 from flask_babel import get_locale
 from kerko.config_helpers import config_update, parse_config
+from kerko.specs import BadgeSpec
+from kerko.renderers import TemplateRenderer
 
 from . import logging
 from .config_helpers import KerkoAppModel, load_config_files
@@ -49,6 +51,15 @@ def create_app() -> Flask:
     # If you are deriving your own custom application from KerkoApp, here is a
     # good place to alter the Composer object, perhaps adding facets.
     # ----
+    composer = app.config["kerko_composer"]
+
+    composer.badges["has_related"] = BadgeSpec(
+        key="has_related",
+        field=composer.fields["rel_related"],
+        activator=lambda field, item: bool(item.get(field.key)),
+        renderer=TemplateRenderer("kerkoapp/_badge_has_related.html.jinja2"),
+        weight=10,
+    )
 
     register_extensions(app)
     register_blueprints(app)

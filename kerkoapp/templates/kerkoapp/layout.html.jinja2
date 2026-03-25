@@ -27,6 +27,9 @@
     {%- block kerko_css %}
         <link rel="stylesheet" href="{{ url_for('kerko.static', filename='kerko/css/styles.css') }}?20230626">
     {%- endblock kerko_css %}
+    {%- block custom_css %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    {%- endblock custom_css %}
 {%- endblock styles %}
 
 {%- block body_inner %}

@@ -1,0 +1,7 @@
+{%- set citation_data = citation_cache.get(item.get('id', '')) %}
+{%- if citation_data %}
+<span class="citation-count"
+      title="Cited {{ citation_data.count }} time{{ 's' if citation_data.count != 1 }} (Europe PMC, {{ citation_data.retrieved }})">
+  <i class="fas fa-quote-right"></i> {{ citation_data.count }}
+</span>
+{%- endif %}

@@ -1,5 +1,250 @@
+/* ==========================================================================
+   dmactrac — custom styles
+   URI / STEEP brand: https://www.uri.edu/wordpress/design/color/
+   Fonts: Lato (headings), Hind (UI/body) via Google Fonts
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   URI brand color variables
+   -------------------------------------------------------------------------- */
+:root {
+    --uri-navy:       #002147;
+    --uri-navy-dark:  #001228;
+    --uri-mid-blue:   #30557e;
+    --uri-keaney:     #2277b3;
+    --uri-light-blue: #c0ddf2;
+    --uri-gold:       #b5985a;
+    --uri-mid-gold:   #ffd453;
+    --uri-light-gold: #fefada;
+    --uri-grey:       #dddddd;
+    --uri-mid-grey:   #999999;
+    --uri-dark-grey:  #555555;
+    --uri-link:       #005eff;
+    --uri-link-hover: #003287;
+}
+
+/* --------------------------------------------------------------------------
+   Base typography
+   -------------------------------------------------------------------------- */
+body {
+    font-family: 'Hind', Arial, sans-serif;
+    color: #222222;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Lato', 'Hind', Arial, sans-serif;
+    font-weight: 700;
+    color: var(--uri-navy);
+}
+
+a {
+    color: var(--uri-link);
+}
+
+a:hover {
+    color: var(--uri-link-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Navbar — URI navy background
+   -------------------------------------------------------------------------- */
+.navbar.steep-navbar {
+    background-color: var(--uri-navy) !important;
+    border-bottom: 3px solid var(--uri-gold);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Logo / brand area */
+.steep-navbar .navbar-brand {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.steep-navbar .steep-logo {
+    height: 52px;
+    width: auto;
+}
+
+/* Nav links */
+.steep-navbar .nav-link {
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.9) !important;
+    padding: 1rem 0.85rem !important;
+    transition: color 0.15s ease, border-bottom 0.15s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.steep-navbar .nav-link:hover,
+.steep-navbar .nav-link:focus {
+    color: var(--uri-mid-gold) !important;
+    border-bottom-color: var(--uri-mid-gold);
+}
+
+.steep-navbar .nav-link.active {
+    color: var(--uri-mid-gold) !important;
+    border-bottom-color: var(--uri-mid-gold);
+}
+
+/* Toggler */
+.steep-navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.steep-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* --------------------------------------------------------------------------
+   Breadcrumb
+   -------------------------------------------------------------------------- */
+.breadcrumb {
+    background-color: var(--uri-light-blue);
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+}
+
+.breadcrumb-item a {
+    color: var(--uri-navy);
+    font-weight: 600;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--uri-mid-blue);
+}
+
+.breadcrumb-item.active {
+    color: var(--uri-mid-blue);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--uri-mid-blue);
+}
+
+/* --------------------------------------------------------------------------
+   Page headings
+   -------------------------------------------------------------------------- */
+main h1, main .h1 {
+    color: var(--uri-navy);
+    border-bottom: 2px solid var(--uri-gold);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons — restyle Bootstrap primaries to URI navy/gold
+   -------------------------------------------------------------------------- */
+.btn-primary {
+    background-color: var(--uri-navy);
+    border-color: var(--uri-navy);
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: 700;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--uri-mid-blue);
+    border-color: var(--uri-mid-blue);
+}
+
+.btn-light {
+    color: var(--uri-navy);
+    border-color: var(--uri-grey);
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: 600;
+}
+
+.btn-light:hover {
+    color: var(--uri-navy);
+    background-color: var(--uri-light-blue);
+    border-color: var(--uri-keaney);
+}
+
+/* --------------------------------------------------------------------------
+   Search / facet sidebar
+   -------------------------------------------------------------------------- */
+.kerko-facet .card-header,
+.kerko-search-groupby .card-header {
+    background-color: var(--uri-navy);
+    color: #ffffff;
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.03em;
+}
+
+/* --------------------------------------------------------------------------
+   Footer — URI navy background
+   -------------------------------------------------------------------------- */
+footer.steep-footer {
+    background-color: var(--uri-navy) !important;
+    color: rgba(255, 255, 255, 0.85);
+    border-top: 3px solid var(--uri-gold);
+    font-family: 'Hind', Arial, sans-serif;
+    font-size: 0.875rem;
+}
+
+footer.steep-footer a {
+    color: var(--uri-light-blue);
+}
+
+footer.steep-footer a:hover {
+    color: var(--uri-mid-gold);
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Citation count badge
+   -------------------------------------------------------------------------- */
+.citation-count {
+    color: var(--uri-mid-blue);
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   "Has related" badge (existing feature)
+   -------------------------------------------------------------------------- */
 .badge-has-related {
-    color: #0066cc;
+    color: var(--uri-keaney);
     margin-left: 0.4em;
     font-size: 0.85em;
+}
+
+/* --------------------------------------------------------------------------
+   Search results list
+   -------------------------------------------------------------------------- */
+.search-item {
+    border-bottom: 1px solid var(--uri-grey);
+    padding-bottom: 0.75rem;
+}
+
+.search-item a {
+    color: var(--uri-navy);
+}
+
+.search-item a:hover {
+    color: var(--uri-mid-blue);
+}
+
+/* --------------------------------------------------------------------------
+   Item detail view — field labels
+   -------------------------------------------------------------------------- */
+.item-content .font-weight-bold {
+    color: var(--uri-navy);
+}
+
+/* --------------------------------------------------------------------------
+   Alerts
+   -------------------------------------------------------------------------- */
+.alert-info {
+    background-color: var(--uri-light-blue);
+    border-color: var(--uri-keaney);
+    color: var(--uri-navy-dark);
 }

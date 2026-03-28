@@ -4,6 +4,9 @@ A sample Flask application using the Kerko blueprint.
 
 import os
 
+import json
+from pathlib import Path
+from .cli import update_citations_command
 import kerko
 from flask import Flask, render_template
 from flask_babel import get_locale
@@ -15,6 +18,22 @@ from . import logging
 from .config_helpers import KerkoAppModel, load_config_files
 from .extensions import babel, bootstrap
 
+def load_citation_cache(app: Flask) -> None:
+    """Load citation counts from JSON cache and make available to templates."""
+    cache_file = Path(app.root_path).parent / "citation_cache.json"
+
+    if cache_file.exists():
+        with cache_file.open() as f:
+            cache = json.load(f)
+    else:
+        cache = {}
+        app.logger.warning(
+            "citation_cache.json not found, citation counts unavailable"
+        )
+
+    @app.context_processor
+    def inject_citations():
+        return {"citation_cache": cache}
 
 def create_app() -> Flask:
     """
@@ -60,6 +79,12 @@ def create_app() -> Flask:
         renderer=TemplateRenderer("kerkoapp/_badge_has_related.html.jinja2"),
         weight=10,
     )
+
+    # Load citation cache and make available to all templates
+    load_citation_cache(app)
+
+    # Register custom CLI commands
+    app.cli.add_command(update_citations_command)
 
     register_extensions(app)
     register_blueprints(app)

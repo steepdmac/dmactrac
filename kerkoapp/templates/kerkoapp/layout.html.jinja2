@@ -14,6 +14,12 @@
 
 {%- block styles %}
     {{- super() }}
+    {%- block google_fonts %}
+        {# Lato (headings/nav) and Hind (body/UI) — URI brand typography #}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600&family=Lato:wght@400;700;900&display=swap">
+    {%- endblock google_fonts %}
     {%- block bootstrap_css %}
         {%- if bootstrap %}
             {{ bootstrap.load_css(version=config.kerko.assets.bootstrap_version) }}
@@ -28,7 +34,7 @@
         <link rel="stylesheet" href="{{ url_for('kerko.static', filename='kerko/css/styles.css') }}?20230626">
     {%- endblock kerko_css %}
     {%- block custom_css %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}?v=2">
     {%- endblock custom_css %}
 {%- endblock styles %}
 
@@ -37,10 +43,16 @@
         <header {% block header_attributes %}{% endblock %}>
             {%- block header_inner %}
                 {%- block navbar %}
-                    <nav class="navbar navbar-expand-md navbar-dark bg-dark d-print-none">
+                    <nav class="navbar navbar-expand-md navbar-dark steep-navbar d-print-none">
                         <div class="container">
                             {%- block navbar_brand %}
-                                {%- include "kerko/_navbar_brand.html.jinja2" %}
+                                <a class="navbar-brand" href="{{ url_for('kerko.search') }}">
+                                    <img
+                                        src="https://web.uri.edu/wp-content/uploads/sites/1022/steep-logo.png"
+                                        alt="STEEP — Sources, Transport, Exposure &amp; Effects of PFAS"
+                                        class="steep-logo"
+                                    >
+                                </a>
                             {%- endblock navbar_brand %}
                             {%- block navbar_toggler %}
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="{{ _('Toggle navigation') }}">
@@ -49,7 +61,7 @@
                             {%- endblock navbar_toggler %}
                             {%- block navbar_content %}
                                 <div id="navbar-content" class="collapse navbar-collapse">
-                                    <ul class="navbar-nav ml-auto justify-content-end font-weight-bold">
+                                    <ul class="navbar-nav ml-auto justify-content-end">
                                         {%- block navbar_items %}
                                             {%- include "kerko/_navbar_items.html.jinja2" %}
                                         {%- endblock navbar_items %}
@@ -107,7 +119,7 @@
         </main>
     {%- endblock main %}
     {%- block footer %}
-        <footer {% block footer_attributes %}class="bg-dark text-white"{% endblock %}>
+        <footer {% block footer_attributes %}class="steep-footer"{% endblock %}>
             {%- block footer_inner %}
                 <div class="text-center pt-3 pb-3">
                     {{ _('Powered by {zotero} and {kerko}.').format(

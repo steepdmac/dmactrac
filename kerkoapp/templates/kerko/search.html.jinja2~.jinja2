@@ -230,19 +230,6 @@
     {%- block kerko_search_js %}
         <script src="{{ url_for('kerko.static', filename='kerko/js/search.js') }}?20221229"></script>
     {%- endblock kerko_search_js %}
-    {%- block citation_persistence_js %}
-    <script>
-    (function () {
-        var params = new URLSearchParams(window.location.search);
-        if (params.get('citations') !== '1') return;
-        document.querySelectorAll('.pagination a[href]').forEach(function (a) {
-            var url = new URL(a.href);
-            url.searchParams.set('citations', '1');
-            a.href = url.toString();
-        });
-    })();
-    </script>
-    {%- endblock citation_persistence_js %}
     {%- block kerko_print_js %}
         {%- if show_print_link %}
             <script src="{{ url_for('kerko.static', filename='kerko/js/print.js') }}"></script>

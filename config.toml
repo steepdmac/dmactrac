@@ -104,12 +104,12 @@ whoosh_language = "en"
 
 [kerko.facets]
 
-   # [kerko.facets.tag]
-   # enabled = true
-   # weight = 100
-   # initial_limit = 10
-   # initial_limit_leeway = 2
-   # sort_by = ["label"]
+    [kerko.facets.tag]
+    enabled = false
+    weight = 100
+    initial_limit = 10
+    initial_limit_leeway = 2
+    sort_by = ["label"]
 
     [kerko.facets.item_type]
     enabled = true

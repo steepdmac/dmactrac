@@ -4,36 +4,19 @@ A sample Flask application using the Kerko blueprint.
 
 import os
 
-import json
-from pathlib import Path
-from .cli import update_citations_command
 import kerko
 from flask import Flask, render_template
 from flask_babel import get_locale
 from kerko.config_helpers import config_update, parse_config
-from kerko.specs import BadgeSpec
+from kerko.specs import BadgeSpec, FlatFacetSpec
 from kerko.renderers import TemplateRenderer
+from whoosh.fields import ID
+from whoosh.query import Term
 
 from . import logging
 from .config_helpers import KerkoAppModel, load_config_files
 from .extensions import babel, bootstrap
 
-def load_citation_cache(app: Flask) -> None:
-    """Load citation counts from JSON cache and make available to templates."""
-    cache_file = Path(app.root_path).parent / "citation_cache.json"
-
-    if cache_file.exists():
-        with cache_file.open() as f:
-            cache = json.load(f)
-    else:
-        cache = {}
-        app.logger.warning(
-            "citation_cache.json not found, citation counts unavailable"
-        )
-
-    @app.context_processor
-    def inject_citations():
-        return {"citation_cache": cache}
 
 def create_app() -> Flask:
     """
@@ -80,11 +63,22 @@ def create_app() -> Flask:
         weight=10,
     )
 
-    # Load citation cache and make available to all templates
-    load_citation_cache(app)
-
-    # Register custom CLI commands
-    app.cli.add_command(update_citations_command)
+    # Replace the built-in tree-based year facet with a flat one showing individual years.
+    composer.facets.pop("facet_year", None)
+    composer.facets["facet_year"] = FlatFacetSpec(
+        key="facet_year",
+        filter_key="year",
+        field_type=ID(stored=True),
+        extractor=composer.fields["year"].extractor,
+        title="Publication Year",
+        weight=300,
+        sort_by=["label"],
+        sort_reverse=True,
+        initial_limit=0,
+        initial_limit_leeway=0,
+        query_class=Term,
+        allow_overlap=False,
+    )
 
     register_extensions(app)
     register_blueprints(app)

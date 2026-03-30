@@ -5,6 +5,7 @@ A sample Flask application using the Kerko blueprint.
 import os
 
 import kerko
+import json
 from flask import Flask, render_template
 from flask_babel import get_locale
 from kerko.config_helpers import config_update, parse_config
@@ -12,6 +13,8 @@ from kerko.specs import BadgeSpec, FlatFacetSpec
 from kerko.renderers import TemplateRenderer
 from whoosh.fields import ID
 from whoosh.query import Term
+from pathlib import Path
+
 
 from . import logging
 from .config_helpers import KerkoAppModel, load_config_files
@@ -81,6 +84,16 @@ def create_app() -> Flask:
     )
 
     app.cli.add_command(update_citations_command)
+    @app.context_processor
+    def inject_citation_cache():
+        cache_file = Path(app.root_path).parent / "citation_cache.json"
+        try:
+            with cache_file.open() as f:
+                citation_cache = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            citation_cache = {}
+        return {"citation_cache": citation_cache}
+
     register_extensions(app)
     register_blueprints(app)
     register_errorhandlers(app)

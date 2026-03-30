@@ -16,7 +16,7 @@ from whoosh.query import Term
 from . import logging
 from .config_helpers import KerkoAppModel, load_config_files
 from .extensions import babel, bootstrap
-
+from .cli import update_citations_command
 
 def create_app() -> Flask:
     """
@@ -80,6 +80,7 @@ def create_app() -> Flask:
         allow_overlap=False,
     )
 
+    app.cli.add_command(update_citations_command)
     register_extensions(app)
     register_blueprints(app)
     register_errorhandlers(app)

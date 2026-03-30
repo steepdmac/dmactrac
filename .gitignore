@@ -1,3 +1,5 @@
+citation_cache.json
+
 # Byte-compiled / optimized / caches.
 .*cache/
 __pycache__/
@@ -58,6 +60,9 @@ coverage.xml
 *.bak
 *.old
 
+# Temporary files
+/claude.tmp
+
 # Configuration files.
 .env
 .flaskenv
@@ -67,3 +72,11 @@ old-config.toml
 # Application data.
 /data
 /instance
+
+# pythonanywhere
+/pythonanywhere
+
+# move to another directory
+whoosh_export.json
+whoosh_test.ipynb
+whoosh_test.py

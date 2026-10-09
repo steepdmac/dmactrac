@@ -1,1 +1,3 @@
-kerko @ git+https://github.com/whiskyechobravo/kerko.git
+# Pinned to the commit running on PythonAnywhere (Kerko 1.3.0 + 3 fixes, 2025-08-12).
+# See the upgrade notes before changing: overridden templates are full copies.
+kerko @ git+https://github.com/whiskyechobravo/kerko.git@3b7cafa8cb988acc93ab834989178d6977ce717a

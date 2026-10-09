@@ -73,10 +73,13 @@ old-config.toml
 /data
 /instance
 
-# pythonanywhere
-/pythonanywhere
+# pythonanywhere (real WSGI file holds secrets; only the template is tracked)
+/pythonanywhere/*
+!/pythonanywhere/wsgi_template.py
 
 # move to another directory
 whoosh_export.json
 whoosh_test.ipynb
 whoosh_test.py
+# Draft docs (remove when complete)
+DEPLOYMENT-PYTHONANYWHERE.md

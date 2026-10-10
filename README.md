@@ -122,6 +122,8 @@ The templates in this project override Kerko's defaults. When upgrading Kerko, c
 
 ## Acknowledgements
 
+This work is supported by the National Institute of Environmental Health Sciences (NIEHS) Superfund Research Program under award [P42ES027706](https://reporter.nih.gov/project-details/P42ES027706) to Project STEEP (Sources, Transport, Exposure and Effects of PFAS) at the University of Rhode Island. The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.
+
 - [Kerko](https://github.com/whiskyechobravo/kerko) and [KerkoApp](https://github.com/whiskyechobravo/kerkoapp) by Whisky Echo Bravo
 - [Zotero](https://www.zotero.org/) for bibliographic data
 - [Europe PMC](https://europepmc.org/) for citation data

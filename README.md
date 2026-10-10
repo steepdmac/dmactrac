@@ -1,6 +1,6 @@
-# STEEP Data Publication Tracker
+# DMACtrac: Publication and Data Tracker
 
-A bibliographic web application for tracking and browsing publications related to [Project STEEP](https://web.uri.edu/steep/). Built on [KerkoApp](https://github.com/whiskyechobravo/kerkoapp) — a [Flask](https://flask.palletsprojects.com/) application powered by the [Kerko](https://github.com/whiskyechobravo/kerko) blueprint — with a Zotero group library as the data backend, extended with citation counts from [Europe PMC](https://europepmc.org/).
+Research projects increasingly need to show not only what they have published, but where the underlying data and code can be found. DMACtrac addresses this by providing a searchable catalog of a project's publications linked to their associated data and software. It was developed by the [Data Management and Analysis Core (DMAC)](https://web.uri.edu/steep/steep-cores/data-management-and-analysis-core/) of [Project STEEP](https://web.uri.edu/steep/), and its modular design makes it easy to adapt for other projects with similar tracking needs. Built on [KerkoApp](https://github.com/whiskyechobravo/kerkoapp) — a [Flask](https://flask.palletsprojects.com/) application powered by the [Kerko](https://github.com/whiskyechobravo/kerko) blueprint — with a Zotero group library as the data backend, extended with citation counts from [Europe PMC](https://europepmc.org/).
 
 ## Features
 

@@ -1,6 +1,6 @@
 # STEEP Data Publication Tracker
 
-A bibliographic web application for tracking and browsing publications related to Project STEEP. Built on [KerkoApp](https://github.com/whiskyechobravo/kerkoapp) — a [Flask](https://flask.palletsprojects.com/) application powered by the [Kerko](https://github.com/whiskyechobravo/kerko) blueprint — with a Zotero group library as the data backend, extended with citation counts from [Europe PMC](https://europepmc.org/).
+A bibliographic web application for tracking and browsing publications related to [Project STEEP](https://web.uri.edu/steep/). Built on [KerkoApp](https://github.com/whiskyechobravo/kerkoapp) — a [Flask](https://flask.palletsprojects.com/) application powered by the [Kerko](https://github.com/whiskyechobravo/kerko) blueprint — with a Zotero group library as the data backend, extended with citation counts from [Europe PMC](https://europepmc.org/).
 
 ## Features
 

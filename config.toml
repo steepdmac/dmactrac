@@ -71,7 +71,7 @@ text_max_length_leeway = 10
     text = "Guides"   
 
     [[kerko.link_groups.breadcrumb_base]]
-    text = "Project STEEP Tracker"
+    text = "DMACtrac"
     type = "url"
     url = "https://dmactrac.pythonanywhere.com"
 

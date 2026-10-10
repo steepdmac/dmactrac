@@ -71,14 +71,14 @@ text_max_length_leeway = 10
     text = "Guides"   
 
     [[kerko.link_groups.breadcrumb_base]]
-    text = "Project STEEP"
+    text = "Project STEEP Tracker"
     type = "url"
-    url = "http://example.com"
+    url = "https://dmactrac.pythonanywhere.com"
 
-    [[kerko.link_groups.breadcrumb_base]]
-    text = "Tracker"
-    type = "url"
-    url = "http://example.com/project"
+ #   [[kerko.link_groups.breadcrumb_base]]
+ #   text = "Tracker"
+ #   type = "url"
+ #   url = "http://example.com/project"
 
     [[kerko.link_groups.breadcrumb_base]]
     text = "Publications"
